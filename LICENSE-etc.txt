@@ -1,0 +1,17 @@
+                  Additional License Information
+
+The 'Battlegrounds3D' (BG3D) game code is licensed under the GPLv3.
+The 'xlib' engine code is licensed under the LGPLv3.
+The 'BG3D Assets', including images, 3d models, and audio files, are licensed
+under the CC BY-SA 4.0, UNLESS otherwise specified by the original author
+where applicable.
+
+                           BG3D Assets
+
+BG3D Original Assets (c) 2009 by xfacter
+
+BG3D Assets are licensed under a
+Creative Commons Attribution-ShareAlike 4.0 International License.
+
+You should have received a copy of the license along with this
+work. If not, see <http://creativecommons.org/licenses/by-sa/4.0/>.
