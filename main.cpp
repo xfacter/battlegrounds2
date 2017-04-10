@@ -176,17 +176,17 @@ void SetGroundTex()
 {
     if (Camera == 0)
     {
-    	ground_tex0.SetImage(0, 0);
-    	ground_tex0.SetImage(0, 1);
-    	ground_tex1.SetImage(0, 2);
-    	ground_tex2.SetImage(0, 3);
+        ground_tex0.SetImage(0, 0);
+        ground_tex0.SetImage(0, 1);
+        ground_tex1.SetImage(0, 2);
+        ground_tex2.SetImage(0, 3);
     }
     else
     {
-    	ground_tex0.SetImage(3, 0);
-    	ground_tex0.SetImage(3, 1);
-    	ground_tex1.SetImage(3, 2);
-    	ground_tex2.SetImage(3, 3);
+        ground_tex0.SetImage(3, 0);
+        ground_tex0.SetImage(3, 1);
+        ground_tex1.SetImage(3, 2);
+        ground_tex2.SetImage(3, 3);
     }
 }
 
@@ -194,17 +194,17 @@ void SetCellTex()
 {
     if (Camera == 0)
     {
-    	tech_tex0.SetImage(0, 0);
-    	tech_tex0.SetImage(0, 1);
-    	tech_tex1.SetImage(0, 2);
-    	tech_tex2.SetImage(0, 3);
+        tech_tex0.SetImage(0, 0);
+        tech_tex0.SetImage(0, 1);
+        tech_tex1.SetImage(0, 2);
+        tech_tex2.SetImage(0, 3);
     }
     else
     {
-    	tech_tex0.SetImage(3, 0);
-    	tech_tex0.SetImage(3, 1);
-    	tech_tex1.SetImage(3, 2);
-    	tech_tex2.SetImage(3, 3);
+        tech_tex0.SetImage(3, 0);
+        tech_tex0.SetImage(3, 1);
+        tech_tex1.SetImage(3, 2);
+        tech_tex2.SetImage(3, 3);
     }
 }
 
@@ -774,8 +774,8 @@ int main(int argc, char **argv)
 
         if (game_state == 1)
         {
-        	SpawnPlayer();
-        	for (int t = 0; t < MAX_TEAMS; t++)
+            SpawnPlayer();
+            for (int t = 0; t < MAX_TEAMS; t++)
             {
                 if (TeamInPlay[t])
                 {
@@ -923,26 +923,26 @@ void MapEditor()
         dt = xLibDtGet();
         xCtrlRead(dt);
 
-		if (xCtrlTap(PSP_CTRL_START))
+        if (xCtrlTap(PSP_CTRL_START))
         {
             PauseEditor();
             xLibDtInit();
         }
 
-		int x = (int)(cursor_x/CELL_LENGTH);
-		int y = (int)(cursor_y/CELL_LENGTH);
+        int x = (int)(cursor_x/CELL_LENGTH);
+        int y = (int)(cursor_y/CELL_LENGTH);
 
         if (xCtrlPress(PSP_CTRL_RTRIGGER)) map.SetFeature(x, y, '0');
 
-		if (xCtrlPress(PSP_CTRL_UP) && !TeamInPlay[0]) map.SetFeature(x, y, 'a');
+        if (xCtrlPress(PSP_CTRL_UP) && !TeamInPlay[0]) map.SetFeature(x, y, 'a');
         if (xCtrlPress(PSP_CTRL_RIGHT) && !TeamInPlay[1]) map.SetFeature(x, y, 'b');
         if (xCtrlPress(PSP_CTRL_DOWN) && !TeamInPlay[2]) map.SetFeature(x, y, 'c');
-		if (xCtrlPress(PSP_CTRL_LEFT) && !TeamInPlay[3]) map.SetFeature(x, y, 'd');
+        if (xCtrlPress(PSP_CTRL_LEFT) && !TeamInPlay[3]) map.SetFeature(x, y, 'd');
 
-		if (xCtrlPress(PSP_CTRL_CROSS)) map.SetFeature(x, y, '1');
-		if (xCtrlPress(PSP_CTRL_SQUARE)) map.SetFeature(x, y, '2');
-		if (xCtrlPress(PSP_CTRL_TRIANGLE)) map.SetFeature(x, y, '6');
-		if (xCtrlPress(PSP_CTRL_CIRCLE)) map.SetFeature(x, y, '5');
+        if (xCtrlPress(PSP_CTRL_CROSS)) map.SetFeature(x, y, '1');
+        if (xCtrlPress(PSP_CTRL_SQUARE)) map.SetFeature(x, y, '2');
+        if (xCtrlPress(PSP_CTRL_TRIANGLE)) map.SetFeature(x, y, '6');
+        if (xCtrlPress(PSP_CTRL_CIRCLE)) map.SetFeature(x, y, '5');
 
         if (x_absf(xCtrlAnalogX()) > (float)cfg_analog_deadzone)
         {
@@ -967,22 +967,22 @@ void MapEditor()
         rotReticle += 2.5f * dt;
 
 
-		for (int i = 0; i < MAX_TEAMS; i++)
+        for (int i = 0; i < MAX_TEAMS; i++)
         {
             if (TeamInPlay[i]) flag_smoke[i]->Explode(FlagSpawnX[i], FlagSpawnY[i], 0.0f, 1);
             flag_smoke[i]->UpdateSystem(dt);
         }
 
         bg3dConsole.UpdateConsole(dt);
-		xGuFrameStart();
-		DrawEditor();
+        xGuFrameStart();
+        DrawEditor();
         if (cfg_show_fps)
         {
             xText2DPrintf(&font, 1, 258, 0xFFFFFFFF, 0, 1.0f, 1, 0, "FPS: %f", xLibDtFps(dt));
         }
         bg3dConsole.RenderConsole(&font, 5, 256 - 5*LINE_HEIGHT, 0, 5*LINE_HEIGHT, LINE_HEIGHT, 1);
-		xGuFrameEnd();
-		xGuSwapBuffers(0);
+        xGuFrameEnd();
+        xGuSwapBuffers(0);
     }
 }
 
@@ -991,12 +991,12 @@ void DrawEditor()
     cam.x = editor_x; cam.y = editor_y; cam.z = zoom[0];
     xGumSetCameraPos(cam.x, cam.y, cam.z);
 
-	sceGuBlendFunc(GU_ADD, GU_SRC_ALPHA, GU_ONE_MINUS_SRC_ALPHA, 0, 0);
+    sceGuBlendFunc(GU_ADD, GU_SRC_ALPHA, GU_ONE_MINUS_SRC_ALPHA, 0, 0);
 
     xDrawSkybox(0, 0, 0, 0, &sky_tex_bottom, 0, 1, SKYBOX_SUBDIV, -SKYBOX_OFFSET, -SKYBOX_OFFSET, -0.5f*SKYBOX_HEIGHT, SKYBOX_LENGTH, SKYBOX_LENGTH, SKYBOX_HEIGHT);
 
-	sceGuTexFunc(GU_TFX_MODULATE, GU_TCC_RGBA);
-	sceGuTexFilter(GU_LINEAR, GU_LINEAR);
+    sceGuTexFunc(GU_TFX_MODULATE, GU_TCC_RGBA);
+    sceGuTexFilter(GU_LINEAR, GU_LINEAR);
 
     for (int x = 0; x < map.Length(); x++)
     {
@@ -1085,7 +1085,7 @@ void DrawEditor()
     xGumCallList(reticleList);
     sceGuDisable(GU_BLEND);
 
-	for (int i = 0; i < MAX_TEAMS; i++) flag_smoke[i]->RenderSystem(&smoke_tex, 75.0f, TeamColor[0][i], 0);
+    for (int i = 0; i < MAX_TEAMS; i++) flag_smoke[i]->RenderSystem(&smoke_tex, 75.0f, TeamColor[0][i], 0);
 }
 
 #define GAME_PAUSE_Y (60)
@@ -1320,8 +1320,8 @@ void Game()
 
         if (PlayerAlive && Camera != 2)
         {
-        	if (xCtrlPress(PSP_CTRL_SQUARE) && !CountAllowCannon && AllowShoot)
-        	{
+            if (xCtrlPress(PSP_CTRL_SQUARE) && !CountAllowCannon && AllowShoot)
+            {
                 for (int i = 0; i < CANNON_CACHE; i++)
                 {
                     if (!ShootingCannon[i])
@@ -2513,7 +2513,7 @@ void DrawGame( void )
     xDrawSkybox(&sky_tex_left, &sky_tex_right, &sky_tex_back, &sky_tex_front, &sky_tex_bottom, 0,
                 1, SKYBOX_SUBDIV, -SKYBOX_OFFSET, -SKYBOX_OFFSET, -0.5f*SKYBOX_HEIGHT, SKYBOX_LENGTH, SKYBOX_LENGTH, SKYBOX_HEIGHT);
 
-	sceGuTexFunc(GU_TFX_MODULATE, GU_TCC_RGBA);
+    sceGuTexFunc(GU_TFX_MODULATE, GU_TCC_RGBA);
 
     for (int x = 0; x < map.Length(); x++)
     {
@@ -2665,7 +2665,7 @@ void DrawGame( void )
 
     //since they dont write to Z buffer, need to sort them accordingly. first is in the back.
     tank_glow->RenderSystem(&part_tex, 25.0f, GU_RGBA(0,255,230,0), 0);
-	for (int i = 0; i < MAX_TEAMS; i++) flag_smoke[i]->RenderSystem(&smoke_tex, 75.0f, TeamColor[0][i], 0);
+    for (int i = 0; i < MAX_TEAMS; i++) flag_smoke[i]->RenderSystem(&smoke_tex, 75.0f, TeamColor[0][i], 0);
     explosion_smoke->RenderSystem(&smoke_tex, 100.0f, GU_RGBA(40,40,40,0), 0);
     explosion1->RenderSystem(&smoke_tex, 100.0f, GU_RGBA(255,150,0,0), 0);
     explosion2->RenderSystem(&smoke_tex, 100.0f, GU_RGBA(255,255,0,0), 0);
@@ -2706,8 +2706,8 @@ void DrawHUD( void )
     {
         if (TeamInPlay[t])
         {
-        	for (int i = 0; i < NUM_ENEMIES - (t == PLAYER_TEAM ? 1 : 0); i++)
-        	{
+            for (int i = 0; i < NUM_ENEMIES - (t == PLAYER_TEAM ? 1 : 0); i++)
+            {
                 if (Enemy[t][i].Alive)
                 {
                     float distance = 0;

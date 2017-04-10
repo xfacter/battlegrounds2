@@ -597,10 +597,10 @@ bool BG3DMap::Create(u32 length, u32 height)
 
 bool BG3DMap::Valid()
 {
-	if (!TeamInPlay[PLAYER_TEAM]) return false;
-	int teams = 0;
-	for (int i = 0; i < MAX_TEAMS; i++)
-	{
+    if (!TeamInPlay[PLAYER_TEAM]) return false;
+    int teams = 0;
+    for (int i = 0; i < MAX_TEAMS; i++)
+    {
         if (TeamInPlay[i]) teams += 1;
     }
     if (teams < 2) return false;
@@ -665,9 +665,9 @@ BG3DMap map;
 bool SetupAstar()
 {
     if (!InitAstar(map.Length(), map.Height(), MAX_TEAMS*NUM_ENEMIES)) return false;
-	int open = 0;
-	for (int x = 0; x < map.Length(); x++)
-	{
+    int open = 0;
+    for (int x = 0; x < map.Length(); x++)
+    {
         for (int y = 0; y < map.Height(); y++)
         {
             if (map.Feature(x, y) == '1' || map.Feature(x, y) == '5') walkable[x][y] = 0;
