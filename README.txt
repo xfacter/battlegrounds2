@@ -1,11 +1,10 @@
-Battlegrounds3D build 84
-GBAX Competition Entry
-July 7, 2007
+BATTLEGROUNDS 2
 
 ----------------------------------
 ABOUT
 ----------------------------------
-Battlegrounds3D is a 3D hovertank deathmatch game based on the original 2D PSP homebrew game, Battlegrounds.
+Battlegrounds 2 (formerly known as Battlegrounds 3D or BG3D) is a 3D hovertank
+deathmatch game based on the original 2D PSP homebrew game, Battlegrounds.
 
 ----------------------------------
 CONTROLS
@@ -63,13 +62,22 @@ Start           Pause
 ----------------------------------
 GAMEPLAY
 ----------------------------------
-The HUD contains three bars: health meter, boost meter, and heat meter, in that order.
-The goal of the game is relatively simple. Capture flags and destroy enemies. You have
-a few abilities at your disposal to accomplish this goal, including cannons, lasers,
-mines, and boost. While in game, you can turn on a useful option, target lock. With
-target lock on, you need only be aiming in the general direction of your enemy. Press
-and hold the right trigger and you will lock onto the enemy. Should you choose not to
-use this feature, you must manually aim and strafe to destroy your enemies.
+The HUD contains three bars: health meter, boost meter, and heat meter, in that
+order. The goal of the game is relatively simple. Capture flags and destroy
+enemies. You have a few abilities at your disposal to accomplish this goal,
+including cannons, lasers, mines, and boost. While in game, you can turn on a
+useful option, target lock. With target lock on, you need only be aiming in the
+general direction of your enemy. Press and hold the right trigger and you will
+lock onto the enemy. Should you choose not to use this feature, you must
+manually aim and strafe to destroy your enemies.
+
+----------------------------------
+BUILDING
+----------------------------------
+Build with the included Makefile.
+Depends on libpspmath, available from these sources:
+    <https://github.com/dogo/oslibmodv2/tree/master/src/libpspmath>
+    <https://github.com/tufty/libpspmath>
 
 ----------------------------------
 CREDITS
@@ -84,4 +92,3 @@ SPECIAL THANKS
 #psp-programming on irc.freenode.net
 PSPJunkie, A_Nub, InsertWittyName and everyone else who helped test.
 InsertWittyName and Raphael for coding support.
-

@@ -1,10 +1,10 @@
-//Battlegrounds3D - A 3D Adaptation of Battlegrounds
+//Battlegrounds2 - A 3D Adaptation of Battlegrounds
 
 #include "main.h"
 
 #define LINE_HEIGHT (12)
 
-PSP_MODULE_INFO("Battlegrounds3D", 0, 1, 1);
+PSP_MODULE_INFO("Battlegrounds2", 0, 1, 1);
 PSP_MAIN_THREAD_ATTR(THREAD_ATTR_USER|THREAD_ATTR_VFPU);
 
 u8 __attribute__((aligned(16))) tankList[128];

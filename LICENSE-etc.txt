@@ -1,16 +1,21 @@
                   Additional License Information
 
-The 'Battlegrounds3D' (BG3D) game code is licensed under the GPLv3.
+The 'Battlegrounds 2' (BG2) game code is licensed under the GPLv3.
 The 'xlib' engine code is licensed under the LGPLv3.
-The 'BG3D Assets', including images, 3d models, and audio files, are licensed
+The 'BG2 Assets', including images, 3d models, and audio files, are licensed
 under the CC BY-SA 4.0, UNLESS otherwise specified by the original author
 where applicable.
+Battlegrounds 2 was formerly known as Battlegrounds 3D (BG3D). It is being
+rebranded in order to avoid confusion with Battlegrounds 3.
+The latest xlib engine is now known as xlab. It is being rebranded in order to
+avoid confusion with the X11 window manager and similar projects. It is now
+available at <https://github.com/xfacter/xlab>.
 
-                           BG3D Assets
+                           BG2 Assets
 
-BG3D Original Assets (c) 2009 by xfacter
+BG2 Original Assets (c) 2009 by xfacter
 
-BG3D Assets are licensed under a
+BG2 Assets are licensed under a
 Creative Commons Attribution-ShareAlike 4.0 International License.
 
 You should have received a copy of the license along with this

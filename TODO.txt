@@ -1,14 +1,16 @@
-//Todo/Suggestions
-//--------------------------------------------------
-//GRAPHICS
-//--------------------------------------------------
-//make reticle stay in map?
-//--------------------------------------------------
-//GAMEPLAY
-//--------------------------------------------------
-//single/multiple-use "mini-nuke"? (or similar)
-//teleportation cells?
-//more weapons for players, lol (maybe for AI too :/ )
-//weapon upgrades?
-//maybe turn grenade into some kind of "magni-bomb" or EMP bomb or something (different graphic effect, no damage, just shuts down tanks for a few seconds)
-//ability to choose different weapons
+Todo/Suggestions
+
+PROJECT
+- convert complex models from models.h to OBJ (using new xlib code)
+
+GRAPHICS
+- make reticle stay in map?
+
+GAMEPLAY
+- single/multiple-use "mini-nuke"? (or similar)
+- teleportation cells?
+- more weapons for players, lol (maybe for AI too :/ )
+- weapon upgrades?
+- maybe turn grenade into some kind of "magni-bomb" or EMP bomb or something
+    (different graphic effect, no damage, just shuts down tanks for a few seconds)
+- ability to choose different weapons
