@@ -38,6 +38,21 @@ LDFLAGS =
 
 DEPS = $(OBJS:.o=.d)
 
+# Destination for install
+ifeq ($(DESTDIR),)
+	DESTDIR = $(PSP_ROOT)
+endif
+ifeq ($(DESTDIR),)
+	DESTDIR = $(HOME)/psproot
+endif
+INSTALL_PREFIX = /PSP/GAME
+INSTALL_PATH = $(DESTDIR)$(INSTALL_PREFIX)/$(BIN_NAME)
+
+# Programs for installation
+INSTALL = install
+INSTALL_PROGRAM = $(INSTALL)
+INSTALL_DATA = $(INSTALL) -m 644
+
 .PHONY: all
 all: dirs deploy
 
@@ -49,6 +64,12 @@ dirs:
 .PHONY: deploy
 deploy:
 	rsync -a README.txt $(RES_PATH)/ $(BIN_PATH)
+
+.PHONY: install
+install:
+	@echo "Installing to PSP ..."
+	mkdir -p $(INSTALL_PATH)
+	rsync -a $(BIN_PATH)/ $(INSTALL_PATH)
 
 .PHONY: clean_all
 clean_all:
