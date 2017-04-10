@@ -1,3 +1,8 @@
+/**
+ * WAV file handler for PSP
+ * Original Author: ?
+ */
+
 #ifndef __WAVE_H__
 #define __WAVE_H__
 

@@ -1,4 +1,10 @@
-//Battlegrounds2 - A 3D Adaptation of Battlegrounds
+/**
+ * This file belongs to the 'Battlegrounds 2' game project.
+ * Copyright 2009 xfacter
+ * Copyright 2016 wickles
+ * This work is licensed under the GPLv3
+ * subject to all terms as reproduced in the included LICENSE file.
+ */
 
 #include "main.h"
 

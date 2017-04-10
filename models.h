@@ -1,3 +1,11 @@
+/**
+ * This file belongs to the 'Battlegrounds 2' game project.
+ * Copyright 2009 xfacter
+ * Copyright 2016 wickles
+ * This work is licensed under the GPLv3
+ * subject to all terms as reproduced in the included LICENSE file.
+ */
+
 #ifndef __MODELS_H__
 #define __MODELS_H__
 
@@ -40,12 +48,12 @@ char TeamColorName[4][8] =
 
 //#define groundCol GU_COLOR(1.0f, 1.0f, 1.0f, 1.0f)
 
-TNVertexF __attribute__((aligned(16))) ground[6] = 
+TNVertexF __attribute__((aligned(16))) ground[6] =
 {
     { 0, 1, /*groundCol,*/ 0.0f, 0.0f, 1.0f, 0.0f,  CELL_LENGTH, 0.0f },
     { 1, 1, /*groundCol,*/ 0.0f, 0.0f, 1.0f,  CELL_LENGTH,  CELL_LENGTH, 0.0f },
     { 0, 0, /*groundCol,*/ 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f },
-    
+
     { 0, 0, /*groundCol,*/ 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f },
     { 1, 1, /*groundCol,*/ 0.0f, 0.0f, 1.0f,  CELL_LENGTH,  CELL_LENGTH, 0.0f },
     { 1, 0, /*groundCol,*/ 0.0f, 0.0f, 1.0f,  CELL_LENGTH, 0.0f, 0.0f }
@@ -147,7 +155,7 @@ CVertexF __attribute__((aligned(16))) radarlines[4] =
 {
     { radarlinescol, RADAR_CENTER_X - RADAR_SCREEN_RADIUS, RADAR_CENTER_Y, 0 },
     { radarlinescol, RADAR_CENTER_X + RADAR_SCREEN_RADIUS, RADAR_CENTER_Y, 0 },
-    
+
     { radarlinescol, RADAR_CENTER_X, RADAR_CENTER_Y - RADAR_SCREEN_RADIUS, 0 },
     { radarlinescol, RADAR_CENTER_X, RADAR_CENTER_Y + RADAR_SCREEN_RADIUS, 0 }
 };
@@ -162,43 +170,43 @@ TNVertexF __attribute__((aligned(16))) cell[10*3] =
     { 0, 1, 0.0f, 0.0f, 1.0f, -CELL_LENGTH/2.0f,  CELL_LENGTH/2.0f, WALL_HEIGHT },
     { 1, 1, 0.0f, 0.0f, 1.0f,  CELL_LENGTH/2.0f,  CELL_LENGTH/2.0f, WALL_HEIGHT },
     { 0, 0, 0.0f, 0.0f, 1.0f, -CELL_LENGTH/2.0f, -CELL_LENGTH/2.0f, WALL_HEIGHT },
-    
+
     { 0, 0, 0.0f, 0.0f, 1.0f, -CELL_LENGTH/2.0f, -CELL_LENGTH/2.0f, WALL_HEIGHT },
     { 1, 1, 0.0f, 0.0f, 1.0f,  CELL_LENGTH/2.0f,  CELL_LENGTH/2.0f, WALL_HEIGHT },
     { 1, 0, 0.0f, 0.0f, 1.0f,  CELL_LENGTH/2.0f, -CELL_LENGTH/2.0f, WALL_HEIGHT },
-    
+
     //top
     { 1, 0, 0.0f, 1.0f, 0.0f, -CELL_LENGTH/2.0f,  CELL_LENGTH/2.0f,        0.0f },
     { 0, 0, 0.0f, 1.0f, 0.0f,  CELL_LENGTH/2.0f,  CELL_LENGTH/2.0f,        0.0f },
     { 0, 1, 0.0f, 1.0f, 0.0f,  CELL_LENGTH/2.0f,  CELL_LENGTH/2.0f, WALL_HEIGHT },
-    
+
     { 1, 0, 0.0f, 1.0f, 0.0f, -CELL_LENGTH/2.0f,  CELL_LENGTH/2.0f,        0.0f },
     { 0, 1, 0.0f, 1.0f, 0.0f,  CELL_LENGTH/2.0f,  CELL_LENGTH/2.0f, WALL_HEIGHT },
     { 1, 1, 0.0f, 1.0f, 0.0f, -CELL_LENGTH/2.0f,  CELL_LENGTH/2.0f, WALL_HEIGHT },
-    
+
     //bottom
     { 1, 1, 0.0f,-1.0f, 0.0f,  CELL_LENGTH/2.0f, -CELL_LENGTH/2.0f,  WALL_HEIGHT },
     { 1, 0, 0.0f,-1.0f, 0.0f,  CELL_LENGTH/2.0f, -CELL_LENGTH/2.0f,         0.0f },
     { 0, 0, 0.0f,-1.0f, 0.0f, -CELL_LENGTH/2.0f, -CELL_LENGTH/2.0f,         0.0f },
-    
+
     { 0, 1, 0.0f,-1.0f, 0.0f, -CELL_LENGTH/2.0f, -CELL_LENGTH/2.0f,  WALL_HEIGHT },
     { 1, 1, 0.0f,-1.0f, 0.0f,  CELL_LENGTH/2.0f, -CELL_LENGTH/2.0f,  WALL_HEIGHT },
     { 0, 0, 0.0f,-1.0f, 0.0f, -CELL_LENGTH/2.0f, -CELL_LENGTH/2.0f,         0.0f },
-    
+
     //left
     { 0, 0,-1.0f, 0.0f, 0.0f, -CELL_LENGTH/2.0f,  CELL_LENGTH/2.0f,        0.0f },
     { 0, 1,-1.0f, 0.0f, 0.0f, -CELL_LENGTH/2.0f,  CELL_LENGTH/2.0f, WALL_HEIGHT },
     { 1, 0,-1.0f, 0.0f, 0.0f, -CELL_LENGTH/2.0f, -CELL_LENGTH/2.0f, WALL_HEIGHT },
-    
+
     { 1, 0,-1.0f, 0.0f, 0.0f, -CELL_LENGTH/2.0f, -CELL_LENGTH/2.0f,        0.0f },
     { 0, 0,-1.0f, 0.0f, 0.0f, -CELL_LENGTH/2.0f,  CELL_LENGTH/2.0f,        0.0f },
     { 1, 1,-1.0f, 0.0f, 0.0f, -CELL_LENGTH/2.0f, -CELL_LENGTH/2.0f, WALL_HEIGHT },
-    
+
     //right
     { 0, 1, 1.0f, 0.0f, 0.0f,  CELL_LENGTH/2.0f, -CELL_LENGTH/2.0f, WALL_HEIGHT },
     { 1, 1, 1.0f, 0.0f, 0.0f,  CELL_LENGTH/2.0f,  CELL_LENGTH/2.0f, WALL_HEIGHT },
     { 1, 0, 1.0f, 0.0f, 0.0f,  CELL_LENGTH/2.0f,  CELL_LENGTH/2.0f,        0.0f },
-    
+
     { 0, 1, 1.0f, 0.0f, 0.0f,  CELL_LENGTH/2.0f, -CELL_LENGTH/2.0f, WALL_HEIGHT },
     { 1, 0, 1.0f, 0.0f, 0.0f,  CELL_LENGTH/2.0f,  CELL_LENGTH/2.0f,        0.0f },
     { 0, 0, 1.0f, 0.0f, 0.0f,  CELL_LENGTH/2.0f, -CELL_LENGTH/2.0f,        0.0f }
@@ -2985,43 +2993,43 @@ CNVertexF __attribute__((aligned(16))) pole[10*3] =
     { poleCol, 0.0f, 0.0f, 1.0f, -POLE_WIDTH/2.0f,  POLE_WIDTH/2.0f, POLE_HEIGHT },
     { poleCol, 0.0f, 0.0f, 1.0f,  POLE_WIDTH/2.0f,  POLE_WIDTH/2.0f, POLE_HEIGHT },
     { poleCol, 0.0f, 0.0f, 1.0f, -POLE_WIDTH/2.0f, -POLE_WIDTH/2.0f, POLE_HEIGHT },
-    
+
     { poleCol, 0.0f, 0.0f, 1.0f, -POLE_WIDTH/2.0f, -POLE_WIDTH/2.0f, POLE_HEIGHT },
     { poleCol, 0.0f, 0.0f, 1.0f,  POLE_WIDTH/2.0f,  POLE_WIDTH/2.0f, POLE_HEIGHT },
     { poleCol, 0.0f, 0.0f, 1.0f,  POLE_WIDTH/2.0f, -POLE_WIDTH/2.0f, POLE_HEIGHT },
-    
+
     //top
     { poleCol, 0.0f, POLE_WIDTH, POLE_HEIGHT/2, -POLE_WIDTH/2.0f,  POLE_WIDTH/2.0f,        0.0f },
     { poleCol, 0.0f, POLE_WIDTH, POLE_HEIGHT/2,  POLE_WIDTH/2.0f,  POLE_WIDTH/2.0f,        0.0f },
     { poleCol, 0.0f, POLE_WIDTH, POLE_HEIGHT/2,  POLE_WIDTH/2.0f,  POLE_WIDTH/2.0f, POLE_HEIGHT },
-    
+
     { poleCol, 0.0f, POLE_WIDTH, POLE_HEIGHT/2, -POLE_WIDTH/2.0f,  POLE_WIDTH/2.0f,        0.0f },
     { poleCol, 0.0f, POLE_WIDTH, POLE_HEIGHT/2,  POLE_WIDTH/2.0f,  POLE_WIDTH/2.0f, POLE_HEIGHT },
     { poleCol, 0.0f, POLE_WIDTH, POLE_HEIGHT/2, -POLE_WIDTH/2.0f,  POLE_WIDTH/2.0f, POLE_HEIGHT },
-    
+
     //bottom
     { poleCol, 0.0f,-POLE_WIDTH, POLE_HEIGHT/2,  POLE_WIDTH/2.0f, -POLE_WIDTH/2.0f,  POLE_HEIGHT },
     { poleCol, 0.0f,-POLE_WIDTH, POLE_HEIGHT/2,  POLE_WIDTH/2.0f, -POLE_WIDTH/2.0f,         0.0f },
     { poleCol, 0.0f,-POLE_WIDTH, POLE_HEIGHT/2, -POLE_WIDTH/2.0f, -POLE_WIDTH/2.0f,         0.0f },
-    
+
     { poleCol, 0.0f,-POLE_WIDTH, POLE_HEIGHT/2, -POLE_WIDTH/2.0f, -POLE_WIDTH/2.0f,  POLE_HEIGHT },
     { poleCol, 0.0f,-POLE_WIDTH, POLE_HEIGHT/2,  POLE_WIDTH/2.0f, -POLE_WIDTH/2.0f,  POLE_HEIGHT },
     { poleCol, 0.0f,-POLE_WIDTH, POLE_HEIGHT/2, -POLE_WIDTH/2.0f, -POLE_WIDTH/2.0f,         0.0f },
-    
+
     //left
     { poleCol,-POLE_WIDTH, 0.0f, POLE_HEIGHT/2, -POLE_WIDTH/2.0f,  POLE_WIDTH/2.0f,        0.0f },
     { poleCol,-POLE_WIDTH, 0.0f, POLE_HEIGHT/2, -POLE_WIDTH/2.0f,  POLE_WIDTH/2.0f, POLE_HEIGHT },
     { poleCol,-POLE_WIDTH, 0.0f, POLE_HEIGHT/2, -POLE_WIDTH/2.0f, -POLE_WIDTH/2.0f, POLE_HEIGHT },
-    
+
     { poleCol,-POLE_WIDTH, 0.0f, POLE_HEIGHT/2, -POLE_WIDTH/2.0f, -POLE_WIDTH/2.0f,        0.0f },
     { poleCol,-POLE_WIDTH, 0.0f, POLE_HEIGHT/2, -POLE_WIDTH/2.0f,  POLE_WIDTH/2.0f,        0.0f },
     { poleCol,-POLE_WIDTH, 0.0f, POLE_HEIGHT/2, -POLE_WIDTH/2.0f, -POLE_WIDTH/2.0f, POLE_HEIGHT },
-    
+
     //right
     { poleCol, POLE_WIDTH, 0.0f, POLE_HEIGHT/2,  POLE_WIDTH/2.0f, -POLE_WIDTH/2.0f, POLE_HEIGHT },
     { poleCol, POLE_WIDTH, 0.0f, POLE_HEIGHT/2,  POLE_WIDTH/2.0f,  POLE_WIDTH/2.0f, POLE_HEIGHT },
     { poleCol, POLE_WIDTH, 0.0f, POLE_HEIGHT/2,  POLE_WIDTH/2.0f,  POLE_WIDTH/2.0f,        0.0f },
-    
+
     { poleCol, POLE_WIDTH, 0.0f, POLE_HEIGHT/2,  POLE_WIDTH/2.0f, -POLE_WIDTH/2.0f, POLE_HEIGHT },
     { poleCol, POLE_WIDTH, 0.0f, POLE_HEIGHT/2,  POLE_WIDTH/2.0f,  POLE_WIDTH/2.0f,        0.0f },
     { poleCol, POLE_WIDTH, 0.0f, POLE_HEIGHT/2,  POLE_WIDTH/2.0f, -POLE_WIDTH/2.0f,        0.0f }
@@ -3040,52 +3048,52 @@ NVertexF __attribute__((aligned(16))) flag[12*3] =
     { /*flagCol,*/ 0.0f, 0.0f, 1.0f,        0.0f,  FLAG_WIDTH/2.0f, 0.0f },
     { /*flagCol,*/ 0.0f, 0.0f, 1.0f, FLAG_LENGTH,  FLAG_WIDTH/2.0f, 0.0f },
     { /*flagCol,*/ 0.0f, 0.0f, 1.0f,        0.0f, -FLAG_WIDTH/2.0f, 0.0f },
-    
+
     { /*flagCol,*/ 0.0f, 0.0f, 1.0f,        0.0f, -FLAG_WIDTH/2.0f, 0.0f },
     { /*flagCol,*/ 0.0f, 0.0f, 1.0f, FLAG_LENGTH,  FLAG_WIDTH/2.0f, 0.0f },
     { /*flagCol,*/ 0.0f, 0.0f, 1.0f, FLAG_LENGTH, -FLAG_WIDTH/2.0f, 0.0f },
-    
+
     //floor
     { /*flagCol,*/ 0.0f, 0.0f,-1.0f,        0.0f, -FLAG_WIDTH/2.0f, -FLAG_HEIGHT },
     { /*flagCol,*/ 0.0f, 0.0f,-1.0f, FLAG_LENGTH,  FLAG_WIDTH/2.0f, -FLAG_HEIGHT },
     { /*flagCol,*/ 0.0f, 0.0f,-1.0f,        0.0f,  FLAG_WIDTH/2.0f, -FLAG_HEIGHT },
-    
+
     { /*flagCol,*/ 0.0f, 0.0f,-1.0f, FLAG_LENGTH, -FLAG_WIDTH/2.0f, -FLAG_HEIGHT },
     { /*flagCol,*/ 0.0f, 0.0f,-1.0f, FLAG_LENGTH,  FLAG_WIDTH/2.0f, -FLAG_HEIGHT },
     { /*flagCol,*/ 0.0f, 0.0f,-1.0f,        0.0f, -FLAG_WIDTH/2.0f, -FLAG_HEIGHT },
-    
+
     //top
     { /*flagCol,*/ 0.0f, FLAG_WIDTH, FLAG_HEIGHT/2,        0.0f,  FLAG_WIDTH/2.0f, -FLAG_HEIGHT },
     { /*flagCol,*/ 0.0f, FLAG_WIDTH, FLAG_HEIGHT/2, FLAG_LENGTH,  FLAG_WIDTH/2.0f, -FLAG_HEIGHT },
     { /*flagCol,*/ 0.0f, FLAG_WIDTH, FLAG_HEIGHT/2, FLAG_LENGTH,  FLAG_WIDTH/2.0f,         0.0f },
-    
+
     { /*flagCol,*/ 0.0f, FLAG_WIDTH, FLAG_HEIGHT/2,        0.0f,  FLAG_WIDTH/2.0f, -FLAG_HEIGHT },
     { /*flagCol,*/ 0.0f, FLAG_WIDTH, FLAG_HEIGHT/2, FLAG_LENGTH,  FLAG_WIDTH/2.0f,         0.0f },
     { /*flagCol,*/ 0.0f, FLAG_WIDTH, FLAG_HEIGHT/2,        0.0f,  FLAG_WIDTH/2.0f,         0.0f },
-    
+
     //bottom
     { /*flagCol,*/ 0.0f,-FLAG_WIDTH, FLAG_HEIGHT/2, FLAG_LENGTH, -FLAG_WIDTH/2.0f,         0.0f },
     { /*flagCol,*/ 0.0f,-FLAG_WIDTH, FLAG_HEIGHT/2, FLAG_LENGTH, -FLAG_WIDTH/2.0f, -FLAG_HEIGHT },
     { /*flagCol,*/ 0.0f,-FLAG_WIDTH, FLAG_HEIGHT/2,        0.0f, -FLAG_WIDTH/2.0f, -FLAG_HEIGHT },
-    
+
     { /*flagCol,*/ 0.0f,-FLAG_WIDTH, FLAG_HEIGHT/2,        0.0f, -FLAG_WIDTH/2.0f,         0.0f },
     { /*flagCol,*/ 0.0f,-FLAG_WIDTH, FLAG_HEIGHT/2, FLAG_LENGTH, -FLAG_WIDTH/2.0f,         0.0f },
     { /*flagCol,*/ 0.0f,-FLAG_WIDTH, FLAG_HEIGHT/2,        0.0f, -FLAG_WIDTH/2.0f, -FLAG_HEIGHT },
-    
+
     //left
     { /*flagCol,*/-FLAG_WIDTH, 0.0f, FLAG_HEIGHT/2, 0.0f,  FLAG_WIDTH/2.0f, -FLAG_HEIGHT },
     { /*flagCol,*/-FLAG_WIDTH, 0.0f, FLAG_HEIGHT/2, 0.0f,  FLAG_WIDTH/2.0f,         0.0f },
     { /*flagCol,*/-FLAG_WIDTH, 0.0f, FLAG_HEIGHT/2, 0.0f, -FLAG_WIDTH/2.0f,         0.0f },
-    
+
     { /*flagCol,*/-FLAG_WIDTH, 0.0f, FLAG_HEIGHT/2, 0.0f, -FLAG_WIDTH/2.0f, -FLAG_HEIGHT },
     { /*flagCol,*/-FLAG_WIDTH, 0.0f, FLAG_HEIGHT/2, 0.0f,  FLAG_WIDTH/2.0f, -FLAG_HEIGHT },
     { /*flagCol,*/-FLAG_WIDTH, 0.0f, FLAG_HEIGHT/2, 0.0f, -FLAG_WIDTH/2.0f,         0.0f },
-    
+
     //right
     { /*flagCol,*/ FLAG_WIDTH, 0.0f, FLAG_HEIGHT/2, FLAG_LENGTH, -FLAG_WIDTH/2.0f,         0.0f },
     { /*flagCol,*/ FLAG_WIDTH, 0.0f, FLAG_HEIGHT/2, FLAG_LENGTH,  FLAG_WIDTH/2.0f,         0.0f },
     { /*flagCol,*/ FLAG_WIDTH, 0.0f, FLAG_HEIGHT/2, FLAG_LENGTH,  FLAG_WIDTH/2.0f, -FLAG_HEIGHT },
-    
+
     { /*flagCol,*/ FLAG_WIDTH, 0.0f, FLAG_HEIGHT/2, FLAG_LENGTH, -FLAG_WIDTH/2.0f,         0.0f },
     { /*flagCol,*/ FLAG_WIDTH, 0.0f, FLAG_HEIGHT/2, FLAG_LENGTH,  FLAG_WIDTH/2.0f, -FLAG_HEIGHT },
     { /*flagCol,*/ FLAG_WIDTH, 0.0f, FLAG_HEIGHT/2, FLAG_LENGTH, -FLAG_WIDTH/2.0f, -FLAG_HEIGHT }

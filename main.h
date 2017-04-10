@@ -1,3 +1,11 @@
+/**
+ * This file belongs to the 'Battlegrounds 2' game project.
+ * Copyright 2009 xfacter
+ * Copyright 2016 wickles
+ * This work is licensed under the GPLv3
+ * subject to all terms as reproduced in the included LICENSE file.
+ */
+
 #ifndef __MAIN_H__
 #define __MAIN_H__
 
@@ -319,20 +327,20 @@ public:
     float posExplosionZ[EXPLOSION_CACHE];
     bool Explosion[EXPLOSION_CACHE];
     float ExplosionTimer[EXPLOSION_CACHE];
-    
+
     int Score;
     int Deaths;
     int Caps;
     int Returns;
     float NextX;
     float NextY;
-    
+
     int CannonAggro;
     int LaserBias;
     int SpeedBias;
     int RadiusBias;
     int OffenseBias;
-    
+
     AI();
     void Spawn();
     void Create();
@@ -353,7 +361,7 @@ void AI::Create()
     SpeedBias = x_randi(SPEED_BIAS_MIN, SPEED_BIAS_MAX);
     RadiusBias = x_randi(RADIUS_BIAS_MIN, RADIUS_BIAS_MAX);
     //Enemy[t][i].OffenseBias = x_randi(0, 10);
-    
+
     Score = 0;
     Deaths = 0;
     Caps = 0;
@@ -523,23 +531,23 @@ BG3DMap::~BG3DMap()
 bool BG3DMap::LoadMap(char* filename)
 {
     FILE *file;
-    
+
     file = fopen(filename, "rb");
     if (!file) return false;
-    
+
     u8 header[10];
-    
+
     fread(header, 1, 10, file);
-    
+
     u32 length = header[2] << 0 | header[3] << 8 | header[4] << 16 | header[5] << 24;
     u32 height = header[6] << 0 | header[7] << 8 | header[8] << 16 | header[9] << 24;
-    
+
     if (header[0] != 'B' || header[1] != 'G' || !Create(length, height))
     {
         fclose(file);
         return false;
     }
-    
+
     for (int y = 0; y < Height(); y++)
     {
         for (int x = 0; x < Length(); x++)
@@ -547,15 +555,15 @@ bool BG3DMap::LoadMap(char* filename)
             SetFeature(x, y, (char)fgetc(file));
         }
     }
-    
+
     fclose(file);
-    
+
     if (!Valid())
     {
         Free();
         return false;
     }
-    
+
     return true;
 }
 
@@ -569,12 +577,12 @@ void BG3DMap::Free()
 bool BG3DMap::Create(u32 length, u32 height)
 {
     if (length <= 0 || height <= 0 || length*height > 64*64) return false;
-    
+
     map_length = length;
     map_height = height;
-    
+
     map = (char*)malloc(Length()*Height()*sizeof(char));
-    
+
     for (int x = 0; x < Length(); x++)
     {
         for (int y = 0; y < Height(); y++)
@@ -582,7 +590,7 @@ bool BG3DMap::Create(u32 length, u32 height)
             SetFeature(x, y, '0');
         }
     }
-    
+
     for (int i = 0; i < MAX_TEAMS; i++) TeamInPlay[i] = 0;
     return true;
 }
@@ -602,23 +610,23 @@ bool BG3DMap::Valid()
 bool BG3DMap::SaveMap(char* filename)
 {
     if (!Valid()) return false;
-    
+
     FILE* file = fopen(filename, "wb");
     if (file == 0) return false;
-    
+
     fputc('B', file);
     fputc('G', file);
-    
+
     fputc(Length() >>  0 & 0xff, file);
     fputc(Length() >>  8 & 0xff, file);
     fputc(Length() >> 16 & 0xff, file);
     fputc(Length() >> 24 & 0xff, file);
-    
+
     fputc(Height() >>  0 & 0xff, file);
     fputc(Height() >>  8 & 0xff, file);
     fputc(Height() >> 16 & 0xff, file);
     fputc(Height() >> 24 & 0xff, file);
-    
+
     for (int y = 0; y < Height(); y++)
     {
         for (int x = 0; x < Length(); x++)
@@ -626,9 +634,9 @@ bool BG3DMap::SaveMap(char* filename)
             fputc((int)Feature(x, y), file);
         }
     }
-    
+
     fclose(file);
-    
+
     return true;
 }
 
@@ -682,7 +690,7 @@ bool MapCollision(float test_x, float test_y, float test_radius)
 {
     int ax = (int)(test_x/CELL_LENGTH) - 1;
     int ay = (int)(test_y/CELL_LENGTH) - 1;
-    
+
     for (int x = ax - 1; x <= ax + 1; x++)
     {
         for (int y = ay - 1; y <= ay + 1; y++)
@@ -741,9 +749,9 @@ bool ObjectVisible(float eye_x, float eye_y, float obj_x, float obj_y, float int
     if (dist == 0) return true;
     x = interval*(x/dist);
     y = interval*(y/dist);
-    
+
     if (MapCollision(obj_x, obj_y, 0)) return false;
-    
+
     for (float i = 0; i < dist + interval; i += interval)
     {
         if (MapCollision(eye_x, eye_y, 0)) return false;
@@ -833,9 +841,9 @@ bool InterpolatedTankCollision(int team, int member, float eye_x, float eye_y, f
     x = interval*(x/dist);
     y = interval*(y/dist);
     z = interval*(z/dist);
-    
+
     if (TankCollision(team, member, obj_x, obj_y, obj_z)) return true;
-    
+
     for (float i = 0; i < dist + interval; i += interval)
     {
         if (TankCollision(team, member, eye_x, eye_y, eye_z)) return true;
@@ -892,23 +900,23 @@ void AI::Spawn()
     SpawnTimer = 0;
     LockedOnTeam = -1;
     Health = 100.0f;
-    
+
     do
     {
         posTankX = x_randf(2*TANK_RADIUS, GROUND_LENGTH - 2*TANK_RADIUS);
         posTankY = x_randf(2*TANK_RADIUS, GROUND_HEIGHT - 2*TANK_RADIUS);
     } while (MapCollision(posTankX, posTankY, TANK_RADIUS));
-    
+
     Height = 0;
     HoverOffset = x_randi(0, 1000);
     posTankLastX = posTankX;
     posTankLastY = posTankY;
     rotTank = x_randf(0, 2*PI);
     CannonAllowShoot = 1;
-    
+
     NextX = 0;
     NextY = 0;
-    
+
     CannonAggro = x_randi(CANNON_AGGRO_MIN, CANNON_AGGRO_MAX);
     LaserBias = x_randi(LASER_BIAS_MIN, LASER_BIAS_MAX);
     SpeedBias = x_randi(SPEED_BIAS_MIN, SPEED_BIAS_MAX);
@@ -927,13 +935,13 @@ void SpawnPlayer()
     AllowBoost = 1;
     rotPlayer = PI_2;
     rotCurrent = PI_2;
-    
+
     do
     {
         posPlayerX = x_randf(2*TANK_RADIUS, GROUND_LENGTH - 2*TANK_RADIUS);
         posPlayerY = x_randf(2*TANK_RADIUS, GROUND_HEIGHT - 2*TANK_RADIUS);
     } while (MapCollision(posPlayerX, posPlayerY, TANK_RADIUS));
-    
+
     PlayerHeight = 0;
     posPlayerLastX = posPlayerX;
     posPlayerLastY = posPlayerY;
@@ -941,7 +949,7 @@ void SpawnPlayer()
     camOffsetY = 0;
     rotCamZ = 0;
     rotReticle = 0;
-    
+
     CountAllowCannon = 0;
     CountAllowLaser = 0;
     NumMines = START_MINES;

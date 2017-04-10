@@ -1,3 +1,8 @@
+/**
+ * WAV file handler for PSP
+ * Original Author: ?
+ */
+
 #include <pspkernel.h>
 #include <pspdebug.h>
 #include <pspaudiolib.h>
