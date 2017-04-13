@@ -13,6 +13,8 @@
 PSP_MODULE_INFO("Battlegrounds2", 0, 1, 1);
 PSP_MAIN_THREAD_ATTR(THREAD_ATTR_USER|THREAD_ATTR_VFPU);
 
+char title_text[] = "Battlegrounds2";
+
 u8 __attribute__((aligned(16))) tankList[128];
 u8 __attribute__((aligned(16))) mineList[32];
 u8 __attribute__((aligned(16))) flagList[64];
@@ -524,7 +526,7 @@ int main(int argc, char **argv)
                             bg3dConsole.UpdateConsole(dt);
                             xGuFrameStart();
                             xDrawTexture(0, 0, &background);
-                            xText2DPrintf(&font, 240, 10, 0xFF0000FF, 0, 2.0f, 1, 1, "Battlegrounds3D");
+                            xText2DPrintf(&font, 240, 10, 0xFF0000FF, 0, 2.0f, 1, 1, title_text);
                             int line = 40;
                             xText2DPrintf(&font, 240, line, (MenuOption2 == 1 ? 0xFF0000FF : 0xFFFFFFFF), 0, 1.0f, 1, 1, "Enemies: %i", NUM_ENEMIES);
                             line += LINE_HEIGHT;
@@ -591,7 +593,7 @@ int main(int argc, char **argv)
                                         bg3dConsole.UpdateConsole(dt);
                                         xGuFrameStart();
                                         xDrawTexture(0, 0, &background);
-                                        xText2DPrintf(&font, 240, 10, 0xFF0000FF, 0, 2.0f, 1, 1, "Battlegrounds3D");
+                                        xText2DPrintf(&font, 240, 10, 0xFF0000FF, 0, 2.0f, 1, 1, title_text);
                                         int line = 40;
                                         xText2DPrintf(&font, 240, line, (MenuOption3 == 1 ? 0xFF0000FF : 0xFFFFFFFF), 0, 1.0f, 1, 1, "Length: %i", length);
                                         line += LINE_HEIGHT;
@@ -647,7 +649,7 @@ int main(int argc, char **argv)
                                     bg3dConsole.UpdateConsole(dt);
                                     xGuFrameStart();
                                     xDrawTexture(0, 0, &background);
-                                    xText2DPrintf(&font, 240, 10, 0xFF0000FF, 0, 2.0f, 1, 1, "Battlegrounds3D");
+                                    xText2DPrintf(&font, 240, 10, 0xFF0000FF, 0, 2.0f, 1, 1, title_text);
                                     xText2DPrintf(&font, 240, 40, 0xFFFFFFFF, 0, 1.0f, 1, 1, "Really delete map?");
                                     int line = 60;
                                     xText2DPrintf(&font, 240, line, (MenuOption3 == 1 ? 0xFF0000FF : 0xFFFFFFFF), 0, 1.0f, 1, 1, "Yes");
@@ -661,7 +663,7 @@ int main(int argc, char **argv)
                             bg3dConsole.UpdateConsole(dt);
                             xGuFrameStart();
                             xDrawTexture(0, 0, &background);
-                            xText2DPrintf(&font, 240, 10, 0xFF0000FF, 0, 2.0f, 1, 1, "Battlegrounds3D");
+                            xText2DPrintf(&font, 240, 10, 0xFF0000FF, 0, 2.0f, 1, 1, title_text);
                             int line = 40;
                             xText2DPrintf(&font, 240, line, (MenuOption2 == 1 ? 0xFF0000FF : 0xFFFFFFFF), 0, 1.0f, 1, 1, "New Map");
                             for (int i = 0; i < maps.NumFiles(); i++)
@@ -728,7 +730,7 @@ int main(int argc, char **argv)
                             bg3dConsole.UpdateConsole(dt);
                             xGuFrameStart();
                             xDrawTexture(0, 0, &background);
-                            xText2DPrintf(&font, 240, 10, 0xFF0000FF, 0, 2.0f, 1, 1, "Battlegrounds3D");
+                            xText2DPrintf(&font, 240, 10, 0xFF0000FF, 0, 2.0f, 1, 1, title_text);
                             int line = 40;
                             xText2DPrintf(&font, 240, line, (MenuOption2 == 1 ? 0xFF0000FF : 0xFFFFFFFF), 0, 1.0f, 1, 1, "Analog Deadzone: %u", cfg_analog_deadzone);
                             line += LINE_HEIGHT;
@@ -757,7 +759,7 @@ int main(int argc, char **argv)
                 bg3dConsole.UpdateConsole(dt);
                 xGuFrameStart();
                 xDrawTexture(0, 0, &background);
-                xText2DPrintf(&font, 240, 10, 0xFF0000FF, 0, 2.0f, 1, 1, "Battlegrounds3D");
+                xText2DPrintf(&font, 240, 10, 0xFF0000FF, 0, 2.0f, 1, 1, title_text);
                 int line = 40;
                 xText2DPrintf(&font, 240, line, (MenuOption == 1 ? 0xFF0000FF : 0xFFFFFFFF), 0, 1.0f, 1, 1, "Start Game");
                 line += LINE_HEIGHT;
@@ -871,7 +873,7 @@ void PauseEditor()
         xGuFrameStart();
         DrawEditor();
         xDrawRectSolid(EDIT_PAUSE_MARGINS, EDIT_PAUSE_Y, 480 - 2*EDIT_PAUSE_MARGINS, EDIT_PAUSE_HEIGHT, 0x60000000);
-        xText2DPrintf(&font, 240, 10, 0xFF0000FF, 0, 2.0f, 1, 1, "Battlegrounds3D");
+        xText2DPrintf(&font, 240, 10, 0xFF0000FF, 0, 2.0f, 1, 1, title_text);
         int line = EDIT_PAUSE_Y + 5;
         xText2DPrintf(&font, 240, line, (MenuOption == 1 ? 0xFF0000FF : 0xFFFFFFFF), 0, 1.0f, 1, 1, "Resume");
         line += LINE_HEIGHT;
@@ -1134,7 +1136,7 @@ void PauseGame()
         xGuFrameStart();
         DrawGame();
         xDrawRectSolid(GAME_PAUSE_MARGINS, GAME_PAUSE_Y, 480 - 2*GAME_PAUSE_MARGINS, GAME_PAUSE_HEIGHT, 0x60000000);
-        xText2DPrintf(&font, 240, 10, 0xFF0000FF, 0, 2.0f, 1, 1, "Battlegrounds3D");
+        xText2DPrintf(&font, 240, 10, 0xFF0000FF, 0, 2.0f, 1, 1, title_text);
         int line = GAME_PAUSE_Y + 5;
         xText2DPrintf(&font, 240, line, (MenuOption == 1 ? 0xFF0000FF : 0xFFFFFFFF), 0, 1.0f, 1, 1, "Resume");
         line += LINE_HEIGHT;
